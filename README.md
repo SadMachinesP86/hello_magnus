@@ -4,22 +4,34 @@ Yet another sample project exploring the use of Ruby and Rust code in tandem, th
 
 # Usage
 
-Requires `clang`: 
+Upon entering the project directory, the presence of `.ruby-version` and `.ruby-gemset` will cause RVM to switch the Ruby interpreter to the specified version (prompting you to install it if it isn't already) and generate the Gemset.
+
+Requires `clang`:
 
 ```
 sudo apt-get install -y clang
 ```
 
-Bundle gems with `bundle install`. Then compile with `bundle exec rake compile`. Compilation places the dynamic library `hello_magnus.so` at `lib/hello_magnus`, which can then be required with `require_relative 'hello_magnus/hello_magnus'`.
-
-Enter the console - with the library required for you - with `bin/console`. By inspecting the Rust code you'll see that it defines a global function `hello_magnus`, which simply prints a message:
+Bundle, compile, and enter the console:
 
 ```
+bundle install
+bundle exec rake compile
 bin/console
+```
+
+By inspecting the Rust code you'll see that it defines a global function `hello_magnus`, which simply prints a message:
+
+```
+$ bin/console
 3.1.3 :001 > hello_magnus
 Hello, Magnus!
  => nil
 ```
+
+# Magnus
+
+See [matsadler](https://github.com/matsadler)'s [repo for the Magnus crate](https://github.com/matsadler/magnus).
 
 # VS Code Workspace
 
